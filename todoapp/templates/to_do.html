@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List</title>
+</head>
+<body>
+    {% block content %}
+        <div>
+            <h1>To Do List</h1>
+            <form action="/" METHOD="POST">
+                <p>Task:</p>
+                <input type ="text" name="task">
+
+                <p>Email:</p>
+                <p><input type="text" name="email"></p>
+                
+                <p>Priority:</p>
+                <select name="priority">
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+                
+                <p><input type="submit" value = "Add to do item"></p>
+            </form>
+            <br/><br/>
+            {% for task in task %}
+                <h4>
+                    {{ task.task }} &nbsp;&nbsp; {{ task.email }} &nbsp;&nbsp; {{ task.priority }}
+                </h4>
+            {% endfor %}
+        </div>
+    {% endblock %}
+</body>
+</html>
